@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ms">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Peta Lokasi — Gunung Kinabalu</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="banner small-banner">
+    <img src="banner.jpg" alt="Banner" class="banner-img" />
+    <div class="banner-overlay">
+      <h1>PETA LOKASI</h1>
+      <p>Lokasi Gunung Kinabalu</p>
+    </div>
+  </header>
+
+  <nav class="floating-menu" id="mainMenu2">
+    <ul>
+      <li><a href="index.html">Laman Utama</a></li>
+      <li><a href="tempat.html">Tempat Menarik</a></li>
+      <li><a href="peta.html" class="active">Peta Lokasi</a></li>
+      <li><a href="sumber.html">Sumber Rujukan</a></li>
+    </ul>
+  </nav>
+
+  <main class="container">
+    <section>
+      <h2>Gunung Kinabalu</h2>
+      <p>
+        Di bawah adalah peta bersaiz penuh menunjukkan lokasi Gunung Kinabalu. Anda boleh zum (zoom) dan bergerak
+        di dalam peta untuk melihat kawasan sekeliling.
+      </p>
+
+      <div class="map-wrapper" aria-hidden="false">
+        <!-- Embedded Google Maps - mencari "Mount Kinabalu" -->
+        <iframe
+          title="Peta Gunung Kinabalu"
+          src="https://www.google.com/maps?q=Mount+Kinabalu&output=embed"
+          style="border:0;"
+          allowfullscreen
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+    </section>
+
+    <section class="map-note">
+      <h3>Makluman</h3>
+      <p>
+        Google Maps di atas menggunakan carian umum. Untuk parameter yang tepat,
+        anda boleh log masuk ke Google Maps.
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2025 Laman Informasi di Sabah — Peta Lokasi</p>
+  </footer>
+</body>
+</html>

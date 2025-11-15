@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="ms">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Laman Informasi di Sabah — Laman Utama</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- Banner -->
+  <header class="banner">
+    <img src="banner.jpg" alt="Banner Laman Informasi di Sabah" class="banner-img" />
+    <div class="banner-overlay">
+      <h1>LAMAN INFORMASI DI SABAH</h1>
+      <p>Menjelajah Keindahan Alam Semula Jadi Sabah</p>
+    </div>
+  </header>
+
+  <!-- Floating Menu -->
+  <nav class="floating-menu">
+    <ul>
+      <li><a href="index.html" class="active">Laman Utama</a></li>
+      <li><a href="tempat.html">Tempat Menarik</a></li>
+      <li><a href="peta.html">Peta Lokasi</a></li>
+      <li><a href="sumber.html">Sumber Rujukan</a></li>
+    </ul>
+  </nav>
+
+  <!-- Audio autoplay (muted) -->
+  <audio id="bgAudio" autoplay muted loop>
+    <source src="bg-music.mp3" type="audio/mpeg" />
+    Browser anda tidak menyokong audio.
+  </audio>
+
+  <!-- Audio Status Box (boleh tukar / kecilkan / sembunyi jika mahu) -->
+  <div id="audioNotice" style="max-width:900px;margin:1rem auto;padding:0.8rem;background:#fff;border-radius:10px;box-shadow:0 4px 10px rgba(0,0,0,0.05);">
+    <strong>Status Audio:</strong>
+    <span id="audioStatusText">Sedang dimainkan (dimute – klik mana-mana untuk aktifkan bunyi)</span>
+  </div>
+
+  <!-- Main content -->
+  <main class="container">
+    <section class="intro">
+      <h2>Tujuan Laman</h2>
+      <p>
+        Laman ini dibangunkan bagi menyediakan maklumat yang ringkas dan tepat mengenai destinasi pelancongan utama di Sabah.
+        Ia menggabungkan elemen multimedia seperti audio, video dan peta interaktif untuk meningkatkan pengalaman pengguna.
+      </p>
+      <p>
+        Dengan tema alam semula jadi, laman ini bertujuan membantu pengguna mengenali keindahan Sabah melalui paparan visual yang menarik.
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2025 Laman Informasi di Sabah — Dibangunkan untuk DKB1233</p>
+  </footer>
+
+  <!-- Script Auto Unmute -->
+  <script>
+    const audio = document.getElementById('bgAudio');
+    const statusText = document.getElementById('audioStatusText');
+
+    // Cuba autoplay dahulu
+    audio.play().catch(() => {
+      statusText.textContent = "Audio dimute — klik mana-mana untuk aktifkan bunyi.";
+    });
+
+    // Bila pengguna klik mana-mana, cuba nyah-mute & mainkan audio
+    function activateSound() {
+      audio.muted = false;
+      audio.play().then(() => {
+        statusText.textContent = "Audio dimainkan (bunyi aktif)";
+      }).catch(() => {
+        statusText.textContent = "Gagal aktifkan bunyi — klik sekali lagi.";
+      });
+
+      // Buang listener selepas berjaya
+      window.removeEventListener("click", activateSound);
+      window.removeEventListener("touchstart", activateSound);
+    }
+
+    // Tunggu interaksi pengguna pertama
+    window.addEventListener("click", activateSound);
+    window.addEventListener("touchstart", activateSound);
+  </script>
+
+</body>
+</html>
